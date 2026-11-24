@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.env
+.env.*
+data/
+runs/
+artifacts/
+dist/
+*.log
+*.pt
+!models/best.pt

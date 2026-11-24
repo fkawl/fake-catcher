@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fake Catcher · 이미지 분석실</title><link rel="stylesheet" href="/static/style.css"></head>
+<body>
+<header><a class="brand" href="/" aria-label="Fake Catcher 홈"><span class="mark">F<span>c</span></span> FAKE CATCHER</a><span class="edition">RESEARCH EDITION <b>v0.1</b></span></header>
+<main>
+<section class="intro"><div><p class="eyebrow">IMAGE FORENSICS LAB</p><h1>이미지의 표면 너머를<br><em>살펴보세요.</em></h1><p class="description">RGB와 주파수 특징으로 이미지를 분석하고,<br>모델이 판단에 참고한 영역을 함께 확인합니다.</p></div><aside><div class="orbit"><i></i><i></i><i></i><span>RGB<br><b>＋ FFT</b></span></div></aside></section>
+<div class="statusbar"><span id="model-status" role="status">모델 상태 확인 중</span><span>LOCAL PROCESSING · 업로드 이미지 저장 안 함</span></div>
+<section class="workspace">
+<div class="upload-panel"><p class="eyebrow">YOUR IMAGE</p><h2>분석할 이미지</h2><label class="dropzone" id="dropzone" tabindex="0" role="button" aria-label="이미지 선택"><input id="file" type="file" accept="image/jpeg,image/png,image/webp" hidden><span class="upload-icon">＋</span><strong>이미지를 놓아주세요</strong><span>또는 클릭해서 파일 선택</span><small>JPG · PNG · WEBP / 최대 10MB</small></label><p id="filename">선택한 파일이 없습니다.</p><button id="analyze" disabled>이미지 분석하기</button><p id="error" role="alert"></p><div class="note"><b>결과를 읽는 방법</b><p>판별 점수는 모델의 출력이며 진위의 확정 증거가 아닙니다. 히트맵은 판정에 참고한 영역을 보여줍니다.</p></div></div>
+<div class="result-panel"><div class="result-header"><div><p class="eyebrow">ANALYSIS RESULT</p><h2 id="verdict">이미지를 기다리고 있어요</h2></div><span id="badge">READY TO EXPLORE</span></div><p id="explanation">이미지를 올리면 입력 이미지와 FFT 스펙트럼을 나란히 확인할 수 있습니다.</p>
+<div class="score-row"><span>AI 생성 점수</span><strong id="score">—</strong></div><div class="meter"><div id="meter-fill"></div></div><div class="scale"><span>실제 사진 쪽</span><span>AI 생성 쪽</span></div>
+<div class="views"><figure><div class="imagebox"><img id="input-image" alt="256×256 모델 입력 이미지" hidden><span>RGB</span></div><figcaption>입력 이미지 <small>256 × 256</small></figcaption></figure><figure><div class="imagebox"><img id="fft-image" alt="로그 진폭 FFT 스펙트럼" hidden><span>FFT</span></div><figcaption>주파수 스펙트럼 <small>고주파 특징</small></figcaption></figure><figure><div class="imagebox"><img id="heatmap-image" alt="예측 클래스 판단 근거 Grad-CAM 히트맵" hidden><span id="heatmap-placeholder">CAM</span></div><figcaption>판단 근거 <small>Grad-CAM</small></figcaption></figure></div>
+<div class="result-footer"><span id="timing">분석 시간 —</span><span>RGB + FREQUENCY · 이중 브랜치</span></div></div>
+</section>
+<section class="method"><div><span class="eyebrow">HOW IT WORKS</span><h2>서로 다른 두 관점으로.</h2></div><p><b>공간 특징</b><br>이미지의 질감과 형태를 읽습니다.</p><p><b>주파수 특징</b><br>픽셀 변화의 반복 패턴을 살펴봅니다.</p><p><b>판단 근거</b><br>예측에 기여한 RGB 영역을 표시합니다.</p></section>
+<footer>FAKE CATCHER <span>연구용 프로토타입 · 결과는 데이터와 생성 모델에 따라 달라질 수 있습니다.</span></footer>
+</main><script src="/static/app.js"></script></body></html>
